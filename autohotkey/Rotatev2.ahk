@@ -20,3 +20,38 @@ Loop
 Click, up, left
 return
 
+
+
+SpinDir := 0 ; Bool Variable für Invertscroll
+
+ä::
+Loop
+{   
+    
+ScrollSpeed := 1 ;  Geschwindigkeit Variable
+SleepSpeed := 100 ; Pause Variable
+
+
+    if(SpinDir){
+        SendInput {WheelUp %ScrollSpeed%}
+        Sleep, SleepSpeed ; Pause einstellen
+    }
+    else{
+        SendInput {WheelDown %ScrollSpeed%}
+        Sleep, SleepSpeed ; Pause einstellen
+    }
+    
+
+
+    ; Alle Button Interaktionen wärend des Scrollens
+    if GetKeyState("+", "P")
+    {
+        break ; Beende die Schleife
+    } else If GetKeyState("Down", "P")
+    {
+        SpinDir = 0
+    } else If GetKeyState("Up", "P")
+    {
+        SpinDir = 1
+    }
+}
