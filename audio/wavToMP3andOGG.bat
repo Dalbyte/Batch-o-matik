@@ -9,8 +9,8 @@ SET Codecs[1]=libvorbis
 SET Extensions[0]=mp3
 SET Extensions[1]=ogg
 
-SET Bitrates=64k 128k 192k
-SET VBR_Quality=4 5 6
+SET Bitrates=128k 192k
+SET VBR_Quality=5 6
 
 :check_files
 if "%~1" == "" (
