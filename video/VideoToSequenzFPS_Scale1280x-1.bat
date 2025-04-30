@@ -2,7 +2,7 @@
 cd /d %~dp1
 
 :again
-echo Bitte geben Sie eine Ganzzahl fuer FPS (Frames per Second, 0.1 = Alle zehn Sekunden) ein:
+echo Bitte geben Sie eine Ganzzahl fuer FPS ein:
 set /p number=
 if not defined number goto again
 
@@ -13,5 +13,5 @@ if not defined string goto again
 
 mkdir "%string%-fps-%number%"
 
-ffmpeg -i "%~n1%~x1" -r %number% "%string%-fps-%number%/%string%-%%04d.png"
+ffmpeg -i "%~n1%~x1" -vf scale=1280:-1 -r %number% "%string%-fps-%number%/%string%-%%04d.png"
 
